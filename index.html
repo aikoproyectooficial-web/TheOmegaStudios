@@ -3,63 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheOmegaStudios</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>TheOmegaStudios - Inicio | AikoTheOrigins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>TheOmegaStudios</h1>
+
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo TheOmegaStudios" class="main-logo">
+        </div>
+        <div class="search-lang">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar Aiko, voces...">
+                <i class="fas fa-search"></i>
+            </div>
+            <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+        </div>
     </header>
-    <nav>
-        <a href="#Inicio">Inicio</a>
-        <a href="#Proyectos">Proyectos</a>
-        <a href="#Fandub">Fandub</a>
-        <a href="#Contactanos">Contáctanos</a>
+
+    <nav class="main-nav">
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i>INICIO</a></li>
+            <li><a href="aiko-origins.html"><i class="fas fa-book-open"></i>AIKOTHEORIGINS</a></li>
+            <li><a href="proyectos.html"><i class="fas fa-tasks"></i>PROYECTOS</a></li>
+            <li><a href="dobladores.html"><i class="fas fa-microphone-alt"></i>DOBLADORES</a></li>
+            <li><a href="sobre-mi.html"><i class="fas fa-user-circle"></i>SOBRE MÍ</a></li>
+        </ul>
     </nav>
-    <div class="contenedor" id="Inicio">
-        <h2>Bienvenido a la página de TheOmegaStudios</h2>
-        <p>Disfruta de nuestros proyectos.</p>
 
-    </div>
+    <main class="main-content">
+    <section class="carrusel-simulado">
+     <div class="carrusel-contenedor" id="carruselContenedor">
+        <div class="carrusel-item active" style="background-image: url('img/hero_aiko.png')">
+            <div class="overlay">
+                <h1>AikoTheOrigins: El Cómic</h1>
+                <p>Creado por TheOmegaStudios. Descubre el origen.</p>
+            </div>
+        </div>
 
-    <div class="contenedor" id="Proyectos">
-        <h2>Nuestros Proyectos!!</h2>
-        <div class="proyectos">
-            <div class="card">
-                <img src="img/AikoTheOrigins poster - FINAL.jpg" alt="Error de Imagen">
-                <h3>AikoTheOrigins</h3>
-                <p>Aiko debe proteger la esmeralda de su malvado tio y lidear con problemas de su país.</p>
+        <div class="carrusel-item next" style="background-image: url('img/hero_doblaje.png')">
+            <div class="overlay">
+                <h1>Audiciones Abiertas</h1>
+                <p>¡Buscamos voces para el Fandub! Únete a TheOmegaStudios.</p>
             </div>
-            <div class="card">
-                <img src="img/AikoTheOrigins poster 1.png" alt="Error de Imagen">
-                <h3>Fandub</h3>
-                <p>Conoce al elenco del Mundo de Aiko.</p>
-            </div>
-            <div class="card">
-                <img src="img/Aiko Go v0.7.1.png" alt="Error de Imagen">
-                <h3>AikoGo</h3>
-                <p>Aiko sus amigos en nuevas aventuras.</p>
+        </div>
+
+        <div class="carrusel-item prev" style="background-image: url('img/hero_proyectos.png')">
+            <div class="overlay">
+                <h1>Nuevos Horizontes</h1>
+                <p>Próximos proyectos y colaboraciones de TheOmegaStudios.</p>
             </div>
         </div>
     </div>
-    <div class="contenedor" id="Fandub">
-        <h2>Puedes Participar!!</h2>
-        <ul>
-            <li>Buscamos Voces Para El Proyecto</li>
-            <li>No necesitas tener experiencia</li>
-            <li>Son varios proyectos</li>
-            <li>Hazlo por diversión</li>
-            <li>Tu puedes lograrlo!!</li>
-            <li>Más proyectos en camino....</li>
-        </ul>
+
+    <button class="nav-btn prev-btn" onclick="cambiarImagen(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="nav-btn next-btn" onclick="cambiarImagen(1)"><i class="fas fa-chevron-right"></i></button>
+    </section>
+    <section class="status-panel">
+    <div class="status-header">
+        <i class="fas fa-stream"></i> ESTADO DE PRODUCCIÓN
     </div>
-    <footer>
-    <div class="Contenedor" id="Contactanos">
-        <h2>Contactanos XD!!</h2>
-        <P>Youtube: AikoProyectoOficial</P>
-        <p>Email: aikoproyectooficial@gmail.com</p>
-        <p>TikTok: AikoProyectoOficial</p>
+    <div class="status-list">
+        <div class="status-item">
+            <span class="project-name">AikoTheOrigins</span>
+            <span class="badge badge-online">🟠 En producción</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="project-name">Fandub / Doblaje</span>
+            <span class="badge badge-auditions">🟠 En audiciones</span>
+        </div>
+
+        <div class="status-item">
+            <span class="project-name">Proyecto Secreto</span>
+            <span class="badge badge-prep">🔴 En pre-producción</span>
+        </div>
     </div>
-    </footer>      
+</section>
+        <section class="noticias-caja">
+            <div class="noticia-header">
+                <h2>NOTICIAS RECIENTES</h2>
+            </div>
+            <div class="noticia-body">
+                <ul>
+                    <li><strong>10.04.2026</strong> [CÓMIC] Lanzamiento del Capítulo 1 de AikoTheOrigins En Producción!!</li>
+                    <li><strong>04.04.2026</strong> [FANDUB] Buscamos voces para algunos personajes, audiciones abiertas.</li>
+                    <li><strong>05.03.2025</strong> [COLABORACIÓN] TheOmegaStudios x Proyecto Fandub una enorme colaboración.</li>
+                    <li><strong>27.01.2024</strong> [STUDIO] TheOmegaStudios se une a un nuevo proyecto de doblaje.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+ <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2026 TheOmegaStudios. Todos los derechos reservados.</p>
+        </div>
+
+       <div class="footer-right">
+    <div class="contact-info">
+    <span>CONTÁCTANOS:</span>
+    <span class="email-text-fixed">aikoproyectooficial@gmail.com</span>
+</div>
+    
+    <div class="social-icons">
+        <a href="https://www.tiktok.com/@theomegastudios" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://discord.gg/xpgBBMDjBQ" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+</div>
+    </div>
+</footer>
+<script>
+    // 1. Obtenemos todas las tarjetas y las flechas
+    const carrusel = document.getElementById('carruselContenedor');
+    const items = carrusel.querySelectorAll('.carrusel-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0; // Índice de la tarjeta central (active)
+
+    // 2. La función principal que actualiza las clases
+    function updateCarrusel() {
+        // Obtenemos el número total de tarjetas
+        const totalItems = items.length;
+
+        // Calculamos los índices para las tarjetas de los lados
+        const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+        const nextIndex = (currentIndex + 1) % totalItems;
+
+        // Limpiamos las clases viejas de TODAS las tarjetas
+        items.forEach((item, index) => {
+            item.classList.remove('active', 'prev', 'next');
+            
+            // Si la tarjeta actual es la central
+            if (index === currentIndex) {
+                item.classList.add('active');
+            } 
+            // Si es la de la izquierda
+            else if (index === prevIndex) {
+                item.classList.add('prev');
+            } 
+            // Si es la de la derecha
+            else if (index === nextIndex) {
+                item.classList.add('next');
+            }
+        });
+    }
+
+    // 3. Las funciones de las flechas (cambiadas ligeramente)
+    function cambiarImagen(direccion) {
+        // Obtenemos el total de tarjetas
+        const totalItems = items.length;
+        
+        // Sumamos o restamos al índice actual
+        currentIndex = (currentIndex + direccion + totalItems) % totalItems;
+        
+        // Actualizamos las clases para que se muevan
+        updateCarrusel();
+    }
+
+    // 4. Inicializamos el carrusel al cargar la página
+    //updateCarrusel(); // Llamamos a la función una vez para configurarlo
+</script>
 </body>
 </html>
