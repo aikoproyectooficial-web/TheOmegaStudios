@@ -962,3 +962,103 @@ y no se vea el fondo a través de ellos */
     cursor: pointer;
     font-size: 20px;
 }
+
+
+
+/* ============================================================
+   SECCIÓN RESPONSIVA (PARA MÓVILES Y TABLETS)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Ajuste de la barra superior */
+    .top-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .search-lang {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 2. Ajuste del Menú de Navegación */
+    .main-nav ul {
+        flex-wrap: wrap; /* Permite que los botones bajen si no caben */
+    }
+    
+    .main-nav li a {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    /* 3. Ajuste del Carrusel (Lo más importante para tu error) */
+    .carrusel-simulado {
+        height: auto;
+        min-height: 500px;
+        perspective: none; /* Quitamos 3D en móvil para evitar errores visuales */
+    }
+
+    .carrusel-item.active {
+        width: 90% !important; /* Que ocupe casi todo el ancho del cel */
+        height: 450px !important;
+        position: relative;
+        transform: none !important;
+    }
+
+    /* Ocultamos las imágenes laterales en móvil para que no estorben */
+    .carrusel-item.prev, .carrusel-item.next {
+        display: none; 
+    }
+
+    /* 4. Ajuste de la Grilla (Sinopsis y Video) */
+    .main-grid {
+        flex-direction: column; /* Video arriba, texto abajo o viceversa */
+        align-items: center;
+    }
+
+    .sinopsis, .video-container {
+        width: 100% !important;
+        flex: none;
+    }
+
+    /* 5. Ajuste del Reparto (Cast) */
+    .cast-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cast-row {
+        width: 100% !important; /* Ya no es 580px, ahora es el ancho del cel */
+        flex-direction: column; /* Foto - Texto - Foto en vertical */
+        text-align: center;
+    }
+
+    .character-side, .actor-side {
+        margin-bottom: 10px;
+    }
+
+    /* 6. Proyectos */
+    .proyectos-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    /* 7. Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Ajuste extra para pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .aiko-origins-title {
+        font-size: 1.8rem;
+    }
+    
+    .main-nav li a {
+        padding: 8px;
+        font-size: 11px;
+    }
+}
