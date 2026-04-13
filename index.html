@@ -9,18 +9,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <header class="top-bar">
         <div class="logo-container">
             <img src="img/logo.png" alt="Logo TheOmegaStudios" class="main-logo">
         </div>
-        <div class="search-lang">
-            <div class="search-box">
-                <input type="text" placeholder="Buscar Aiko, voces...">
-                <i class="fas fa-search"></i>
-            </div>
-            <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+            <div class="search-lang">
+                <div class="control-hoja-wrapper">
+                        <button id="sakura-control" class="nav-music-btn">
+                         <i id="sakura-icon" class="fas fa-leaf"></i>
+                         </button>
+                </div>
+                
+
+    <div class="music-container">
+        <button id="music-control" class="nav-music-btn">
+            <i id="music-icon" class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3">
+    </div>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar Aiko, voces...">
+            <i class="fas fa-search"></i>
         </div>
+        <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+        <audio id="bg-music" loop>
+                 <source src="audio/voces/AikoTheOriginsTheme Remix.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     </header>
 
     <nav class="main-nav">
@@ -116,17 +131,17 @@
 </div>
     </div>
 </footer>
-<script>
+    <script>
     // 1. Obtenemos todas las tarjetas y las flechas
-    const carrusel = document.getElementById('carruselContenedor');
-    const items = carrusel.querySelectorAll('.carrusel-item');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+        const carrusel = document.getElementById('carruselContenedor');
+        const items = carrusel.querySelectorAll('.carrusel-item');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
 
-    let currentIndex = 0; // Índice de la tarjeta central (active)
+         let currentIndex = 0; // Índice de la tarjeta central (active)
 
     // 2. La función principal que actualiza las clases
-    function updateCarrusel() {
+        function updateCarrusel() {
         // Obtenemos el número total de tarjetas
         const totalItems = items.length;
 
@@ -167,6 +182,36 @@
 
     // 4. Inicializamos el carrusel al cargar la página
     //updateCarrusel(); // Llamamos a la función una vez para configurarlo
-</script>
+    </script>
+    <script src="script.js"></script>
+<div id="welcome-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button id="close-modal" class="close-btn">&times;</button>
+        
+        <div class="fanart-slider">
+            <div class="slide active">
+                <img src="img/dibujos.jpg" class="welcome-img">
+                <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+            </div>
+            <div class="slide">
+                <img src="img/aiko2131.png" class="welcome-img">
+                <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+            </div>
+            <div class="slide">
+                <img src="img/dibujo3.jpg" class="welcome-img">
+                <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+            </div>
+            <div class="slide">
+                <img src="img/dibujo4.png" class="welcome-img">
+                <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+    <span id="prev-fanart" class="prev">&#10094;</span>
+    <span id="next-fanart" class="next">&#10095;</span>
+    </div>
+    </div>
+</div>
 </body>
 </html>
