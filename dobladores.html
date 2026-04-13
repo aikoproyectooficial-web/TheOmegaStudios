@@ -14,13 +14,29 @@
         <div class="logo-container">
             <img src="img/logo.png" alt="Logo TheOmegaStudios" class="main-logo">
         </div>
-        <div class="search-lang">
-            <div class="search-box">
-                <input type="text" placeholder="Buscar Aiko, voces...">
-                <i class="fas fa-search"></i>
-            </div>
-            <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+            <div class="search-lang">
+                <div class="control-hoja-wrapper">
+                        <button id="sakura-control" class="nav-music-btn">
+                         <i id="sakura-icon" class="fas fa-leaf"></i>
+                         </button>
+                </div>
+                
+
+    <div class="music-container">
+        <button id="music-control" class="nav-music-btn">
+            <i id="music-icon" class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3">
+    </div>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar Aiko, voces...">
+            <i class="fas fa-search"></i>
         </div>
+        <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+        <audio id="bg-music" loop>
+                 <source src="audio/voces/AikoTheOriginsTheme Remix.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     </header>
 
     <nav class="main-nav">
@@ -36,28 +52,110 @@
     <h1 class="page-title">ELENCO DE DOBLAJE</h1>
 
     <div class="cast-container">
-        <div class="cast-row">
-            <div class="character-side">
-                <img src="img/aiko cara.png" alt="Aiko Kumiko">
-                <h3>AIKO KUMIKO</h3>
-            </div>
+    <div class="cast-row">
+        <div class="character-side">
+            <img src="img/aiko cara.png" alt="Aiko Kumiko">
+            <h3>Aiko Kumiko</h3>
+        </div>
 
-            <div class="cast-description">
-                <p>Es la protagonista de la serie. Una princesa oni con un gran sentido de la justicia. Su voz debe transmitir valentía pero también su inocencia de 14 años.</p>
-                <div class="audio-sample">
-                    <audio controls>
-                        <source src="audio/voces/demo-aiko.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-            </div>
-
-            <div class="actor-side">
-                <img src="img/linna cara.png" alt="Actor de Voz">
-                <p class="actor-name">LINNAD_S</p>
+        <div class="cast-description">
+            <p>Es la protagonista de la serie. Una princesa oni con un gran sentido de la justicia. Su voz debe transmitir valentía pero también su inocencia de 14 años.</p>
+            <div class="audio-sample">
+                <audio controls>
+                    <source src="audio/voces/demo-aiko.mp3" type="audio/mpeg">
+                </audio>
             </div>
         </div>
 
+        <div class="actor-side">
+            <img src="img/linna cara.png" alt="Actor de Voz">
+            <p class="actor-name">LINNAD_S</p>
         </div>
+    </div> <div class="cast-row">
+        <div class="character-side">
+            <img src="img/takii cara.png" alt="Nombre">
+            <h3>Takii</h3>
+        </div>
+
+        <div class="cast-description">
+            <p>Takii, el adorable compañero parlanchín de Aiko, es una mezcla única de ternura y juego. Se cree el protector de la princesa y se enorgullece de su 'fuerza'.</p>
+            <div class="audio-sample">
+                <audio controls>
+                    <source src="audio/voces/demo-takii.ogg" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <div class="actor-side">
+            <img src="img/lindsey.jpg" alt="Actor">
+            <p class="actor-name">Lindsey</p>
+        </div>
+    </div>
+    <div class="cast-row">
+        <div class="character-side">
+            <img src="img/masato_icon_gosu_1.0.jpg" alt="Nombre">
+            <h3>Masato</h3>
+        </div>
+        <div class="cast-description">
+            <p>Antaño un ciudadano ejemplar y el pilar de su familia, Masato se convirtió en la sombra de lo que fue cuando la Alianza le dio la espalda en su momento de mayor necesidad. Consumido por la decepción y el deseo de justicia propia, ahora actúa como el antagonista principal.</p>
+            <div class="audio-sample">
+                <audio controls><source src="audio/voces/demo-masato.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+        <div class="actor-side">
+            <img src="img/image_12.jpg" alt="Actor">
+            <p class="actor-name">Meliastor</p>
+        </div>
+    </div>
+    <div class="cast-row">
+        <div class="character-side">
+            <img src="img/vaelirus.png" alt="Nombre">
+            <h3>Vaelis Tyberius</h3>
+        </div>
+        <div class="cast-description">
+            <p>Bajo la imponente armadura del soberano de la Forja, se esconde una voluntad frágil. Aunque proyecta una imagen de autoridad y temor para mantener el control, Vaelis es en realidad un hombre con el corazón de un niño asustadizo.</p>
+            <div class="audio-sample">
+                <audio controls><source src="audio/voces/demo-valerius.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+        <div class="actor-side">
+            <img src="img/tohru20.jpg" alt="Actor">
+            <p class="actor-name">Tohru29</p>
+        </div>
+    </div>
+    <div class="cast-row">
+        <div class="character-side">
+            <img src="img/alaric.png" alt="Nombre">
+            <h3>Alaric Winterguard</h3>
+        </div>
+        <div class="cast-description">
+            <p>Un líder cuya lealtad termina donde empieza su linaje. Alaric es la definición de egocentrismo protector; es capaz de romper cualquier tratado o alianza si eso garantiza la seguridad de su familia.</p>
+            <div class="audio-sample">
+                <audio controls><source src="audio/voces/demo-alaric.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+        <div class="actor-side">
+            <img src="img/tohru20.jpg" alt="Actor">
+            <p class="actor-name">Tohru29</p>
+        </div>
+    </div>
+    <div class="cast-row">
+        <div class="character-side">
+            <img src="img/klaus.png" alt="Nombre">
+            <h3>Klaus Warbolt</h3>
+        </div>
+        <div class="cast-description">
+            <p>Heredero de un nombre que antes hacía temblar a naciones enteras. Tras la extinción de su clan —el más peligroso del país— a manos de un gran héroe, Klaus adoptó una actitud despreocupada y relajada que oculta sus verdaderas intenciones.</p>
+            <div class="audio-sample">
+                <audio controls><source src="audio/voces/demo-klaus.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+        <div class="actor-side">
+            <img src="img/saitama2193.png" alt="Actor">
+            <p class="actor-name">Saitama1810</p>
+        </div>
+    </div>
+ </div>
 </main>
 <footer class="main-footer">
     <div class="footer-container">
@@ -78,3 +176,5 @@
 </div>
     </div>
 </footer>
+<script src="script.js"></script>
+</html>
