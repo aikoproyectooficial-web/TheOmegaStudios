@@ -1329,7 +1329,7 @@ y no se vea el fondo a través de ellos */
 
 .hero-logo {
     /* Bajamos el tamaño a uno más equilibrado */
-    width: 550px !important; 
+    width: 350px !important; 
     
     /* Mantenemos estas reglas para que no se rompa nada */
     height: auto !important;
