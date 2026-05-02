@@ -1271,7 +1271,7 @@ y no se vea el fondo a través de ellos */
     .bocadillo-comic {
         /* POSICIONAMIENTO FORZADO ARRIBA */
         position: absolute !important;
-        bottom: 90px !important; /* Lo posicionamos arriba del sticker */
+        bottom: 190px !important; /* Lo posicionamos arriba del sticker */
         right: 0px !important;
         
         /* Ajustes de tamaño para que no se corte */
