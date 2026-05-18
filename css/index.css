@@ -8,7 +8,8 @@
     --font-main: 'Roboto', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; 
+}
 
 body {
     background-color: var(--bg-black);
@@ -18,8 +19,12 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
+
 }
 
+/*a, button, .nav-btn, #sakura-control {
+    cursor: url('../img/sakurapointhover.png'), pointer;
+}*/
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
@@ -101,94 +106,6 @@ ul { list-style: none; }
     padding: 0 20px;
 }
 
-.carrusel-simulado {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 750px; /* Mantén la altura para portadas verticales */
-    overflow: hidden;
-    margin-bottom: 50px;
-    perspective: 1000px; /* Da efecto 3D a la rotación */
-}
-.carrusel-contenedor {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.carrusel-item {
-    position: absolute;
-    height: 500px; /* Tamaño base */
-    width: 350px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Esta es la transición suave */
-    opacity: 0; /* Ocultamos las que no están en posición */
-    z-index: 1;
-    will-change: transform, opacity;
-}
-.carrusel-item .overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.carrusel-item.prev {
-    opacity: 1;
-    z-index: 2;
-    transform: translateX(-100%) scale(0.8) rotateY(-10deg);
-    filter: blur(1px) grayscale(50%);
-}
-.carrusel-item.next {
-    opacity: 1;
-    z-index: 2;
-    transform: translateX(100%) scale(0.8) rotateY(10deg);
-    filter: blur(1px) grayscale(50%);
-}
-.carrusel-item.active h1 {
-    font-family:sans-serif; /* O tu fuente de títulos */
-    font-size: 32px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 10px;
-    -webkit-text-stroke: 2px #000;
-    text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
-    
-
-        /* Sombra difuminada extra para profundidad */
-}
-.carrusel-item.active p {
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 600;
-
-    /* BORDE más fino para el texto pequeño */
-    text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
-}
-/* --- ESTADO: CENTRO (active) --- */
-.carrusel-item.active {
-    opacity: 1;
-    z-index: 10;
-    height: 700px; /* Tamaño de la portada de Aiko */
-    width: 500px;
-    transform: translateX(0) scale(1) rotateY(0deg);
-    box-shadow: 0 0 40px rgba(247, 156, 28, 0.4);
-    border: 2px solid var(--accent);
-}
-
-.carrusel-item.active .overlay {
-    opacity: 1;
-}
 .card {
     background-size: contain;
     background-position: center;
@@ -1793,4 +1710,455 @@ body {
 .gallery-item:hover {
     transform: scale(1.05);
     border-color: #ff9900;
+}
+
+
+
+
+
+
+
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.pj-slider-wrapper {
+    position: relative;
+    /* Cambiamos width por fit-content para que no sobre espacio a los lados */
+    width: fit-content; 
+    max-width: 90%; 
+    margin: 40px auto;
+}
+
+/* --- LA MÁSCARA (RECORTA LAS IMÁGENES) --- */
+.pj-slider-mask {
+    /* Quitamos el width: 100% y dejamos que la imagen mande */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: white; /* Cambiado a blanco sólido para que se vea limpio */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- EL RIEL DE DIAPOSITIVAS --- */
+.pj-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: center;
+}
+
+/* --- CADA DIAPOSITIVA --- */
+.pj-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pj-slide img {
+    /* Cambiamos width: 100% por auto para que no se estire de más */
+    width: auto; 
+    max-width: 100%; /* Para que no se salga en pantallas chicas */
+    max-height: 500px; 
+    display: block;
+    /* Quitamos object-fit porque ya no lo necesitamos */
+}
+
+/* --- FLECHAS (AFUERA) --- */
+.pj-prev, .pj-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff6600; /* Color naranja de tu logo */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 100;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Posicionamiento negativo para sacarlas del cuadro */
+.pj-prev {
+    left: -65px; 
+}
+
+.pj-next {
+    right: -65px;
+}
+
+/* Efecto hover */
+.pj-prev:hover, .pj-next:hover {
+    background-color: white;
+    color: #ff6600;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- AJUSTE PARA MÓVILES --- */
+/* Si la pantalla es pequeña, las flechas vuelven adentro para no salirse del celular */
+@media (max-width: 1100px) {
+    .pj-slider-wrapper {
+        width: 90%;
+    }
+    .pj-prev { left: 10px; }
+    .pj-next { right: 10px; }
+}
+
+
+.pj-single-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;    /* <--- Añade esto para que respire */
+    margin-bottom: 40px; /* Un poco más de espacio antes de la galería */
+    padding: 0 20px;
+}
+
+.pj-banner-1 {
+    /* 1. Lo hacemos más pequeño (estaba al 100%) */
+    width: 90%; 
+    
+    display: flex;
+    /* 2. Alineamos a la izquierda en lugar de al centro */
+    justify-content: flex-start; 
+    align-items: center;
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    
+    /* 3. Empujamos hacia la izquierda */
+    /* Si quieres que se salga un poco de la pantalla, usa un valor negativo mayor */
+    margin-left: -80px; 
+}
+
+.pj-banner-2 {
+    /* 1. Lo hacemos más pequeño */
+    width: 90%; 
+    
+    display: flex;
+    /* 2. Alineamos el contenido hacia la derecha */
+    justify-content: flex-end; 
+    align-items: center;
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    
+    /* 3. Empujamos hacia la derecha */
+    /* Usamos margin-right negativo para que "asome" por la derecha */
+    margin-right: -80px; 
+    
+    /* 4. Mantenemos el flujo para que no choque con el de arriba */
+    margin-left: auto; 
+}
+
+
+
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-content {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.carrusel-simulado {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px; /* Recuperamos la altura original para portadas grandes */
+    overflow: hidden;
+    margin-bottom: 50px;
+    perspective: 1000px;
+}
+
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- ESTILOS BASE DE LAS TARJETAS --- */
+.carrusel-item {
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: 1;
+    will-change: transform, opacity;
+    overflow: hidden;
+}
+
+/* --- FORMATOS EN BASE A SU CLASE --- */
+
+/* Cómics (Tamaño base para laterales) */
+.item-imagen {
+    height: 500px; 
+    width: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tráiler de YouTube (Horizontal 16:9) */
+.item-video {
+    width: 800px;
+    height: 450px;
+}
+/* Configuración interna del reproductor */
+.carrusel-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* --- CONTROL 3D CON DISTANCIAS CALCULADAS --- */
+
+/* 1. TARJETA CENTRAL (ACTIVE) */
+.carrusel-item.active {
+    opacity: 1;
+    z-index: 10;
+    filter: blur(0px) grayscale(0%);
+    box-shadow: 0 0 40px rgba(247, 156, 28, 0.4);
+    border: 2px solid var(--accent, #f79c1c);
+}
+
+/* Cuando el cómic está al centro: ¡CRECE al tamaño gigante de tu segunda foto! */
+.carrusel-item.active.item-imagen {
+    height: 700px;
+    width: 500px;
+    transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+/* Cuando el video está al centro */
+.carrusel-item.active.item-video {
+    transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+
+/* 2. TARJETAS LATERALES (PREV / NEXT) */
+.carrusel-item.prev, 
+.carrusel-item.next {
+    opacity: 1; /* Recuperamos la opacidad total para que brillen como antes */
+    z-index: 2;
+    filter: blur(1px) grayscale(50%);
+}
+
+/* CUANDO EL CENTRO ES UN CÓMIC (Distancia bien pegadita como en la foto) */
+.carrusel-item.prev {
+    transform: translateX(-350px) scale(0.8) rotateY(-10deg);
+}
+.carrusel-item.next {
+    transform: translateX(350px) scale(0.8) rotateY(10deg);
+}
+
+/* CUANDO EL CENTRO ES EL VIDEO (Se abren un poquito más automático para no pisarse) */
+.active-is-video .carrusel-item.prev {
+    transform: translateX(-350px) scale(0.8) rotateY(-10deg);
+}
+.active-is-video .carrusel-item.next {
+    transform: translateX(350px) scale(0.8) rotateY(10deg);
+}
+
+/* --- BOTONES DE NAVEGACIÓN (FLECHAS) --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100 !important; /* Prioridad absoluta */
+    cursor: pointer;
+}
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+
+/* --- TEXTOS SOBRE LAS TARJETAS (OVERLAYS) --- */
+.carrusel-item .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+}
+
+.carrusel-item.active .overlay {
+    opacity: 1;
+}
+
+.carrusel-item.active h1 {
+    font-family: sans-serif;
+    font-size: 32px; /* Volvemos al tamaño de fuente original */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 2px #000;
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+}
+
+.carrusel-item.active p {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+/* Deshabilita clics en los videos si están en los laterales */
+.item-video.prev iframe, 
+.item-video.next iframe {
+    pointer-events: none;
+}
+
+
+
+/* --- ETIQUETA FLOTANTE "LO MÁS VISTO" (DENTRO PERO VISIBLE) --- */
+.badge-destacado {
+    position: absolute;
+    top: -35px; /* Sube exactamente arriba del borde del video */
+    left: 0; /* Se alinea perfecto con el borde izquierdo del video */
+    z-index: 99; /* Por encima de todo */
+    background: rgba(18, 18, 18, 0.95);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid var(--accent, #f79c1c);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* CUANDO EL VIDEO ESTÁ AL CENTRO: Permitimos que la etiqueta "salga" de la tarjeta y se muestre */
+.carrusel-item.active.item-video {
+    overflow: visible !important; /* ¡Rompe el recorte para dejar ver la etiqueta! */
+}
+
+/* Mostramos la etiqueta con animación */
+.carrusel-item.active .badge-destacado {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares)
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - ACTUALIZADO CON CONTENCIÓN
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - ACTUALIZADO CON CONTENCIÓN
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - VERSIÓN FINAL CORREGIDA
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - REESCRITO
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .gallery-section {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .gallery-title {
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    /* BANNERS */
+    .pj-single-banner, .pj-banner-1, .pj-banner-2 {
+        width: 100% !important;
+        height: auto !important; 
+        margin: 12px 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        float: none !important; 
+    }
+
+    .pj-single-banner img, .pj-banner-1 img, .pj-banner-2 img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain;
+        border-radius: 8px; 
+    }
+
+    /* GALERÍA DE ARTE (SLIDER EN CELULAR) */
+    .pj-slider-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 15px auto !important;
+        position: relative;
+    }
+
+    .pj-slider-mask {
+        width: 100% !important;
+        height: 420px !important; /* Forzamos una altura fija a la máscara en celular */
+        overflow: hidden !important;
+    }
+
+    .pj-slides {
+        display: flex !important;
+        height: 100% !important;
+    }
+
+    .pj-slide {
+        min-width: 100% !important; 
+        width: 100% !important;
+        height: 100% !important; /* Se adapta a los 420px de la máscara */
+        padding: 0 10px !important; 
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* Redimensiona la imagen para que quepa obligatoriamente en el espacio disponible */
+    .pj-slide img {
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 100% !important;
+        object-fit: contain !important; /* Muestra el dibujo completo sin recortar nada */
+        border-radius: 8px;
+    }
+
+    /* BOTONES */
+    .pj-prev, .pj-next {
+        padding: 10px 12px !important;
+        font-size: 16px !important;
+        background: rgba(0, 0, 0, 0.7) !important; 
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10;
+    }
+    .pj-prev { left: 10px !important; }
+    .pj-next { right: 10px !important; }
 }
