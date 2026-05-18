@@ -50,18 +50,54 @@
         <li><a href="sobre-mi.html"><i class="fas fa-user-circle"></i>SOBRE MÍ</a></li>
     </ul>
 </nav>
-<main class="gallery-section">
-    <h2 class="gallery-title">Galería de Arte</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="img/ficha personajes 1.png" alt="Personajes 1"></div>
-        <div class="gallery-item"><img src="img/ficha personajes 2.png" alt="Personajes 2"></div>
-        <div class="gallery-item"><img src="img/ficha personajes 3.png" alt="Personajes 3"></div>
+    <main class="gallery-section">
+        <div class="pj-single-banner">
+            <img src="img/diapoaiko.png" alt="Banner Aiko">
+        </div>
+        <h2 class="gallery-title">PERSONAJES (Individuos o Criaturas)</h2>
+        <div class="pj-banner-1">
+            <img src="img/diaponi.png" alt="Banner Aiko">
+        </div>
+        <div class="pj-banner-2">
+            <img src="img/diapokitsune.png" alt="Banner Aiko">
+        </div>
+        <div class="pj-banner-1">
+            <img src="img/diapookame.png" alt="Banner Aiko">
+        </div>   
+        <div class="pj-banner-2">
+            <img src="img/diapohannya.png" alt="Banner Aiko">
+        </div>
+        <div class="pj-banner-1">
+            <img src="img/diapotengu.png" alt="Banner Aiko">
+        </div>                 
+        <h2 class="gallery-title">Algunas Facciones</h2>
+        <div class="pj-banner-2">
+            <img src="img/diaporyuji.png" alt="Banner Aiko">
+        </div>
+        <div class="pj-banner-1">
+            <img src="img/diapoalaric.png" alt="Banner Aiko">
+        </div>
+        <div class="pj-banner-2">
+            <img src="img/diapotyberus.png" alt="Banner Aiko">
+        </div>
+        <h2 class="gallery-title">Galería de Arte</h2>
+    
+        <div class="pj-slider-wrapper">
+            <div class="pj-slider-mask"> 
+                <div class="pj-slides">
+                    <div class="pj-slide"><img src="img/ficha personajes 1.png"></div>
+                    <div class="pj-slide"><img src="img/ficha personajes 2.png"></div>
+                    <div class="pj-slide"><img src="img/ficha personajes 3.png"></div>
+                    <div class="pj-slide"><img src="img/ficha personajes 4.png"></div>
+                    <div class="pj-slide"><img src="img/ficha personajes 5.png"></div>
+                    <div class="pj-slide"><img src="img/ficha personajes 6.png"></div>
+                </div>
+            </div>
 
-        <div class="gallery-item"><img src="img/ficha personajes 4.png" alt="Personajes 4"></div>
-        <div class="gallery-item"><img src="img/ficha personajes 5.png" alt="Personajes 5"></div>
-        <div class="gallery-item"><img src="img/ficha personajes 6.png" alt="Personajes 6"></div>
-    </div>
-</main>
+            <button class="pj-prev" onclick="movePjSlide(-1)">&#10094;</button>
+            <button class="pj-next" onclick="movePjSlide(1)">&#10095;</button>
+        </div>
+    </main>
 
  <footer class="main-footer">
     <div class="footer-container">
@@ -81,7 +117,12 @@
         </div>
 </div>
     </div>
-</footer>   
+</footer>
+<div class="personaje-saludo">
+    <img src="img/Sticker.png" alt="Sticker" class="sticker-esquina">
+    <div class="bocadillo-comic">¡Bienvenidos a TheOmegaStudios!</div>
+</div>
+
 </body>
 <script src="script.js"></script>
 </html>
