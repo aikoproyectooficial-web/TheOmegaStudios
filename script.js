@@ -97,6 +97,8 @@ const listaCanciones = [
     "audio/voces/AikoTheOriginsThemeRemix.mp3",
     "audio/voces/mesa-brava.mp3",
     "audio/voces/pursuit.mp3",
+    "audio/voces/calm.mp3",
+    "audio/voces/suspense.mp3",
     "audio/voces/taberna.mp3"
 ];
 
@@ -332,4 +334,29 @@ function cerrarPremio() {
     document.getElementById('premio-secreto').style.display = 'none';
     // ESTO ES LO QUE HACE QUE NO SE ABRA OTRA VEZ AL CAMBIAR DE PÁGINA
     sessionStorage.setItem('premioCerrado', 'true');
+}
+
+
+
+
+
+/* personajes*/
+let currentPjIndex = 0;
+
+function movePjSlide(step) {
+    const slides = document.querySelectorAll('.pj-slide');
+    const totalSlides = slides.length;
+    const sliderContainer = document.querySelector('.pj-slides');
+
+    currentPjIndex += step;
+
+    if (currentPjIndex >= totalSlides) {
+        currentPjIndex = 0;
+    }
+    if (currentPjIndex < 0) {
+        currentPjIndex = totalSlides - 1;
+    }
+
+    const offset = -currentPjIndex * 100;
+    sliderContainer.style.transform = `translateX(${offset}%)`;
 }
