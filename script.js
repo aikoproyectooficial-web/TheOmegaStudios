@@ -94,12 +94,12 @@ const musicIcon = document.getElementById('music-icon');
 const volumeSlider = document.getElementById('volume-slider');
 
 const listaCanciones = [
-    "audio/voces/AikoTheOriginsThemeRemix.mp3",
-    "audio/voces/mesa-brava.mp3",
-    "audio/voces/pursuit.mp3",
-    "audio/voces/calm.mp3",
-    "audio/voces/suspense.mp3",
-    "audio/voces/taberna.mp3"
+    "audio/voces/musica/AikoTheOriginsThemeRemix.mp3",
+    "audio/voces/musica/mesa-brava.mp3",
+    "audio/voces/musica/pursuit.mp3",
+    "audio/voces/musica/calm.mp3",
+    "audio/voces/musica/suspense.mp3",
+    "audio/voces/musica/taberna.mp3"
 ];
 
 window.addEventListener('load', () => {
